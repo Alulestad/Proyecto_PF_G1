@@ -14,6 +14,7 @@ import com.funcional.gr1.funcionalgr1.controller.dto.BookDto;
 import com.funcional.gr1.funcionalgr1.service.BookService;
 
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Controller
@@ -46,9 +47,12 @@ public class BookController {
 		
 		return bookService.deleteBook(bookId);
 	}
-	
-	
-	
+
+
+	@GetMapping("/all")
+	public Flux<BookDto> getAllBooks() {
+		return bookService.getAllBooks();
+	}
 	
 	
 }
